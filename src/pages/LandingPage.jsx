@@ -11,8 +11,10 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   const lifecycle = [
     { name: "OPEN", color: "text-red-500" },
     { name: "ASSIGNED", color: "text-orange-500" },
@@ -54,7 +56,12 @@ const LandingPage = () => {
               Roles
             </a>
 
-            <Button className="bg-blue-600 hover:bg-blue-700">Login</Button>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </Button>
           </nav>
 
           {/* Mobile nav */}
@@ -76,7 +83,10 @@ const LandingPage = () => {
                 <a href="#roles" className="text-lg font-medium">
                   Roles
                 </a>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  onClick={() => navigate("/login")}
+                >
                   Login
                 </Button>
               </div>
@@ -107,7 +117,11 @@ const LandingPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700"
+                onClick={() => navigate("/login")}
+              >
                 Get Started
               </Button>
 
@@ -267,7 +281,11 @@ const LandingPage = () => {
             complaint management system.
           </p>
 
-          <Button size="lg" variant="secondary">
+          <Button
+            size="lg"
+            variant="secondary"
+            onClick={() => navigate("/login")}
+          >
             Start Using ResiTrack
           </Button>
         </div>
