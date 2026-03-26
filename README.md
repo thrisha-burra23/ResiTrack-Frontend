@@ -1,18 +1,82 @@
-# React + Vite
+# ResiTrack Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for **ResiTrack – Smart Apartment Complaint Management System**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚧 Project Status
 
-## React Compiler
+This frontend is currently under development.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* UI structure and routing are implemented
+* Authentication integration with backend is in progress
+* Additional features are being actively developed
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React (Vite)
+* React Router
+* React Hook Form
+* Tailwind CSS
+* shadcn/ui
+* Axios
+* TanStack Query
+
+---
+
+## Planned Features
+
+* User Authentication (Login / Register)
+* Role-based dashboards (Resident / Admin / Staff)
+* Complaint creation and tracking
+* Real-time updates using Socket.IO
+* Form validation using React Hook Form + Zod/Yup
+
+---
+
+## Project Structure
+
+```
+src
+ ├── components
+ ├── pages
+ ├── routes
+ ├── services
+ └── App.jsx
+```
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/yourusername/resitrack-frontend
+npm install
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create `.env` file:
+
+```
+VITE_API_URL=http://localhost:5000
+```
+
+---
+
+## Backend Repository
+
+Backend API:
+
+https://github.com/thrisha-burra23/ResiTrack-Backend
+
+---
+
+## Author
+
+Thrisha
