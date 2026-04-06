@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
+import api from "@/services/axios";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -19,15 +20,29 @@ const LoginPage = () => {
 
   const { mutate: loginMutate, isPending } = useLogin();
 
-  const onSubmit = async (data) => {
-    try {
-      const res = loginMutate(data);
-      toast.success("Login Successful!!")
-      navigate("/dashboard");
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Login Failed. ")
-    }
-    
+  const onSubmit = (data) => {
+    loginMutate(data, {
+      onSuccess: async (res) => {
+        const token = res.data.accessToken;
+
+        // ✅ store token
+        localStorage.setItem("token", token);
+
+        //storing role in local storage        
+        try {
+          const userRes = await api.get("/auth/me");
+          localStorage.setItem("role", userRes.data.user.role);
+        } catch (err) {
+          console.error("Failed to fetch user");
+        }
+
+        toast.success("Login Successful!!");
+        navigate("/dashboard");
+      },
+      onError: (error) => {
+        toast.error(error.response?.data?.message || "Login Failed");
+      },
+    });
   };
 
   return (

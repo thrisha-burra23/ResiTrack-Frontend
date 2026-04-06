@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./hooks/queryClient";
 import Dashboard from "./components/UserDashoard/Dashboard";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (
@@ -17,7 +18,14 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
